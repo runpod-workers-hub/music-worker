@@ -6,6 +6,7 @@ FROM nvidia/cuda:12.6.3-runtime-ubuntu24.04
 # System dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 python3-pip python3-venv python3-dev \
+    build-essential g++ \
     ffmpeg libavformat-dev libavcodec-dev libavdevice-dev libavutil-dev \
     libavfilter-dev libswscale-dev libswresample-dev \
     libsndfile1 git espeak-ng pkg-config \
