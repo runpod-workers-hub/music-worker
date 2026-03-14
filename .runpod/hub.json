@@ -1,0 +1,81 @@
+{
+  "title": "Music Generation Worker",
+  "description": "Generate full songs with vocals and lyrics from text prompts. Supports ACE-Step (48kHz, 50+ languages, up to 4 min) and MusicGen (instrumentals).",
+  "category": "audio",
+  "env": [
+    {
+      "key": "MUSIC_ENGINE",
+      "label": "Music Engine",
+      "description": "Which engine to use: acestep or musicgen",
+      "required": true,
+      "default": "acestep",
+      "type": "string"
+    },
+    {
+      "key": "MUSICGEN_MODEL",
+      "label": "MusicGen Model Size",
+      "description": "Only for MusicGen: small (300M), medium (1.5B), large (3.3B), melody (1.5B)",
+      "required": false,
+      "default": "medium",
+      "type": "string"
+    },
+    {
+      "key": "CPU_OFFLOAD",
+      "label": "CPU Offload",
+      "description": "Set to '1' to enable CPU offloading for low-VRAM GPUs (ACE-Step only)",
+      "required": false,
+      "type": "string"
+    }
+  ],
+  "presets": [
+    {
+      "name": "ACE-Step — Full Song Generation",
+      "description": "Generate full songs with vocals and lyrics. 48kHz, 50+ languages, up to 4 min. ~2s per song on A100.",
+      "env": {
+        "MUSIC_ENGINE": "acestep"
+      },
+      "gpu": "NVIDIA RTX A5000",
+      "volume_size": 20
+    },
+    {
+      "name": "ACE-Step — Budget (CPU Offload)",
+      "description": "Same quality, runs on 8GB+ VRAM GPUs with CPU offloading. Slower but cheaper.",
+      "env": {
+        "MUSIC_ENGINE": "acestep",
+        "CPU_OFFLOAD": "1"
+      },
+      "gpu": "NVIDIA RTX A4000",
+      "volume_size": 20
+    },
+    {
+      "name": "MusicGen Medium — Instrumentals",
+      "description": "Meta's 1.5B model. Instrumental music only, up to 30s clips. Great for background music.",
+      "env": {
+        "MUSIC_ENGINE": "musicgen",
+        "MUSICGEN_MODEL": "medium"
+      },
+      "gpu": "NVIDIA RTX A4000",
+      "volume_size": 10
+    },
+    {
+      "name": "MusicGen Large — Instrumentals (High Quality)",
+      "description": "Meta's 3.3B model. Best instrumental quality, up to 30s clips.",
+      "env": {
+        "MUSIC_ENGINE": "musicgen",
+        "MUSICGEN_MODEL": "large"
+      },
+      "gpu": "NVIDIA RTX A5000",
+      "volume_size": 20
+    },
+    {
+      "name": "MusicGen Melody — Melody-Conditioned",
+      "description": "Meta's 1.5B model with melody conditioning. Hum a tune, get a full arrangement.",
+      "env": {
+        "MUSIC_ENGINE": "musicgen",
+        "MUSICGEN_MODEL": "melody"
+      },
+      "gpu": "NVIDIA RTX A4000",
+      "volume_size": 10
+    }
+  ]
+}

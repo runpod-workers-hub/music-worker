@@ -1,0 +1,7 @@
+torch==2.6.0
+torchaudio==2.6.0
+torchvision
+audiocraft
+runpod>=1.7.0
+soundfile
+numpy

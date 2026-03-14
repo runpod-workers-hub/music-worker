@@ -1,0 +1,23 @@
+{
+  "tests": [
+    {
+      "name": "Basic music generation",
+      "input": {
+        "prompt": "upbeat electronic dance music with strong bass and synth",
+        "duration": 30
+      },
+      "expected_status": 200,
+      "timeout": 120
+    },
+    {
+      "name": "Music with lyrics",
+      "input": {
+        "prompt": "acoustic pop ballad with gentle guitar",
+        "lyrics": "[verse]\nWalking down the road\nSearching for the light\n[chorus]\nWe will find our way",
+        "duration": 30
+      },
+      "expected_status": 200,
+      "timeout": 120
+    }
+  ]
+}

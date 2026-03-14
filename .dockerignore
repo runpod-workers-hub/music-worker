@@ -1,0 +1,14 @@
+.git
+.gitignore
+.dockerignore
+.env
+*.md
+*.wav
+*.mp3
+*.ogg
+__pycache__
+.venv
+venv
+.idea
+.vscode
+.runpod

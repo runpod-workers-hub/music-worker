@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.env
+.env.*
+*.wav
+*.mp3
+*.flac
+*.ogg
+.vscode/
+.idea/
+*.swp
+venv/
+.venv/
+CLAUDE.md
