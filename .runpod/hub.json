@@ -2,6 +2,10 @@
   "title": "Music Generation Worker",
   "description": "Generate full songs with vocals and lyrics from text prompts. Supports ACE-Step (48kHz, 50+ languages, up to 4 min) and MusicGen (instrumentals).",
   "category": "audio",
+  "version": "1.0.0",
+  "image": "alpaslanbek/music-worker:latest",
+  "author": "alpaslanbek",
+  "tags": ["music", "music-generation", "ace-step", "musicgen", "vocals", "lyrics", "instrumental", "ai-music"],
   "env": [
     {
       "key": "MUSIC_ENGINE",
